@@ -1,0 +1,49 @@
+DDPG:
+  alfa_actor: 0.1
+  alfa_critic: 0.1
+  discount_factor: 0.99
+  soft_target_update: 0.005
+  
+ADAM_param:
+  actor: 0.0001 #0.0003
+  critic: 0.0001 #0.0003
+  
+Ornstein_Uhlenbeck:
+  teta: 0.5 #0.15
+  sigma: 1.0 #0.2 #0.3 #0.2  
+  mu: 0
+
+
+Training :
+  nepisodes  : 25
+  test_n_episodes : 20
+  nsteps : 1000
+  buffer_size: 500000
+  batch_size: 128
+  n_waypoint : 5
+  ahead_dist : 0.6 # Global path point ahead respect the current 
+  single_goal : True
+  dyn_path : False
+  goal_pos : True
+  attention_module_flag : True
+  scan_type : 'cartesian'
+  max_ray_value : 3.5
+  dist_waypoint : 0.3 #0.3
+  algorithm : 'SAC' #Possible algortihm ( DDPG , TD3 , SAC )
+  attention_method : 'Depth_Temporal' #Possible attention module ( Spatio_Temporal , Spatial , Temporal , Depth_Temporal )
+  # All parameter below are set in curriculum_simulation.launch
+  debug : False
+  learning_rate_update : 0.6 # if SR_EVAL > learning_rate_update then update learning rate
+  reupload_model : False # True if you want to reload a model
+  test : False # True if you want to test a model
+  upload_model: False # True if you want to upload a model
+  upload_final_model: False # True if you want to upload a final model
+  update_better_model: False # True if you want to update the better model
+  reset_buffer : False
+  reset_lr : False #reset learning rate
+  curr_sr : 0.0 #current success rate
+  #permit to save data used during debug phase 
+  #batch_size : 128
+
+
+  

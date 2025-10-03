@@ -1,0 +1,217 @@
+Curriculum_param:
+  curriculum_phase: 'Phase_2' #see the possible phase in the other part of file 
+  environment : 'Corridor' # Corridor or Office
+
+Corridor: 
+  env_coord : [[-4.0,4.0],[-4.0,9.4]] #[[-4.2,4.2],[5.5,9.4]]
+  start_pos_x : -3.9
+  goal_pos_x : 3.9 
+
+Office:
+  start_zone : []
+
+
+Phase_0: #this phase are only for train the robot's dynamic start and goal
+  #TIPS : range of 3.0 
+  environment : 'Corridor'
+  static_obstacles : []
+  dynamic_obstacles : []
+  #info of initial and goal position
+  dyn_start : True
+  dyn_goal : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [0.0]
+  circular : True
+  radius : 3.5
+  angles : [-1.74, 1.74]
+  translation_obs_x : False
+  dyn_obs_speed : 0.1
+  orientation : [0.0 , 0.0 , 0.0 , 1.0] #quaternion
+  n_obs : 0
+
+Phase_1:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1']
+  dyn_start : True
+  dyn_goal : True
+  circular: False
+  reset_buffer : False
+  reset_LR : False
+  goal_pos_x : 0.0
+  initial_pos_x : [-3.5]
+  initial_pos_y : [2.5]
+  goal_pos_x : [3.5]
+  goal_pos_y : [-3.5 , 8.0]
+  translation_obs_x : False
+  dyn_obs_speed : 0.3
+  orientation : [0.0 , 0.0 , 0.0 , 1.0]
+  n_obs : 2 
+  static_obs_type: '/home/violo/tesi_project/src/model/obstacles/model.sdf'
+  static_obs_angle: 0
+
+
+Phase_1_test:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1']
+  dyn_start : True
+  dyn_goal : True
+  circular: False
+  reset_buffer : False
+  reset_LR : False
+  goal_pos_x : 0.0
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-2.0  , 2.0]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.3
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 2 
+  static_obs_type: '/home/violo/tesi_project/src/model/obstacles/model.sdf'
+  static_obs_angle: 0
+
+Phase_2:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-2.0 , 2.0]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 3
+  static_obs_type: '/home/violo/tesi_project/src/model/obstacles/model.sdf'
+  static_obs_angle: 0
+
+Phase_3:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-3.5 , 3.5]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 4
+  static_obs_type: '/home/violo/tesi_project/src/model/obstacles/model.sdf'
+  static_obs_angle: 0
+
+Phase_1_table:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1']
+  dyn_start : True
+  dyn_goal : True
+  circular: False
+  reset_buffer : False
+  reset_LR : False
+  goal_pos_x : 0.0
+  initial_pos_x : [-3.5]
+  initial_pos_y : [2.5]
+  goal_pos_x : [3.5]
+  goal_pos_y : [-3.5 , 8.0]
+  translation_obs_x : False
+  dyn_obs_speed : 0.3
+  orientation : [0.0 , 0.0 , 0.0 , 1.0]
+  n_obs : 1 
+  static_obs_type: '/home/violo/tiago_public_ws/src/pal_gazebo_worlds/models/kitchen_table/kitchen_table.sdf'
+  static_obs_angle: 0
+
+Phase_2_table:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-2.0 , 2.0]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 2
+  static_obs_type: '/home/violo/tiago_public_ws/src/pal_gazebo_worlds/models/kitchen_table/kitchen_table.sdf'
+  static_obs_angle: 1.57 # pi/2
+
+Phase_3_table:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-3.5 , 3.5]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 3
+  static_obs_type: '/home/violo/tiago_public_ws/src/pal_gazebo_worlds/models/kitchen_table/kitchen_table.sdf'
+  static_obs_angle: 1.57 # pi/2
+
+
+Table_test:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-2.0 , 2.0]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 1
+  static_obs_type: '/home/violo/tiago_public_ws/src/pal_gazebo_worlds/models/kitchen_table/kitchen_table.sdf'
+  static_obs_angle: 1.57 # pi/2
+
+Test:
+  environment : 'Corridor'
+  static_obstacles : ['sobs_1']
+  dynamic_obstacles : ['dobs_1','dobs_2']
+  dyn_start : True
+  dyn_goal : True
+  circular : False
+  reset_buffer : False
+  reset_LR : True
+  initial_pos_x : [0.0]
+  initial_pos_y : [8.0]
+  goal_pos_x : [-2.0 , 2.0]
+  goal_pos_y : [-3.0]
+  translation_obs_x : True
+  dyn_obs_speed : 0.4
+  orientation : [0.0 , 0.0 , -0.690 , 0.723]
+  n_obs : 3
+  static_obs_type: '/home/violo/tesi_project/src/model/obstacles/model.sdf'
+  static_obs_angle: 0
+
+

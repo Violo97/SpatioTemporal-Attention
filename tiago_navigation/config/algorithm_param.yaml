@@ -1,0 +1,65 @@
+DDPG:
+  alfa_actor: 0.1
+  alfa_critic: 0.1
+  discount_factor: 0.98
+  tau : 0.005
+  actor: 0.0001 #0.0003
+  critic: 0.0001 #0.0003
+  
+TD3:
+  discount_factor : 0.99
+  tau : 0.02 #soft target update
+  policy_noise : 0.2
+  noise_clip : 0.5
+  policy_freq : 2
+
+SAC:
+  alpha : 0.12
+  adaptive_entropy : True
+
+#use for analyze efficiently different configuration of the model 
+Architecture_modifier:
+  spatial_att : True
+  temporal_att : False
+
+Spatial_Attention :
+  spatial_att_ourdim : 64 #spatial att output dim second version
+  #spatial_att_ourdim : 30 # spatial attention output dimension
+  n_sector_spatialatt : 6 # number of elements inside each section of laser scan
+  input_spatial_size : 20 # number of section used inside spatial attention
+  n_rays : 120
+  embedding_output_size : 128 #output dim of embedd net inside spatial dim second version
+  #embedding_output_size : 64 #output dimension of embedding network inside spatial attention 
+
+Temporal_Attention :
+  Nc : 20 # number of temporal attention sections
+
+ICP:
+  n_iter : 100
+  threshold : 1.0  
+  error_thresh : 0.001
+
+TAGD:
+  d_thresh : 0.25
+  Nc : 15
+
+Temporal_Attention:
+  temporal_att_outdim : 30
+
+Ornstein_Uhlenbeck:
+  teta: 0.15
+  sigma: 0.2 #0.3 #0.2  
+  mu: 0
+
+Network_param :
+  actor_lr : 1e-4
+  critic_lr : 1e-4
+  eps : 0.000001
+
+network_config:
+  spatial_key_mlp_layers: [256, 128, 64]        # Embedding network for attention keys
+  spatial_value_mlp_layers: [80, 50, 30]        # Feature network for attention values
+  spatial_attention_mlp_layers: [60, 50, 1]     # Score network for attention weights
+  waypoint_mlp_layers: [64, 40, 30]             # Waypoint embedding MLP (unused in A2)
+  action_mlp_layers: [128, 64, 64 ]              # Output layers for actor/critic
+

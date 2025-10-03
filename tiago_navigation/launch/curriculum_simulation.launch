@@ -1,0 +1,39 @@
+<launch>
+  <!--   overridable arguments   -->
+  <arg name="test" default="False"/>
+  <arg name="learning_rate_update" default="0.6"/>
+  <arg name="curr_sr" default="0.0"/>
+  
+  <!--   YAML parameter blocks   -->
+  <rosparam command="load" file="$(find tiago_navigation)/config/algorithm_param.yaml"/>
+  <rosparam command="load" file="$(find tiago_navigation)/config/training_param.yaml"/>
+  <rosparam command="load" file="$(find tiago_navigation)/config/navigation_param.yaml"/>
+  <rosparam command="load" file="$(find tiago_navigation)/config/tiago_param.yaml"/>
+  <rosparam command="load" file="$(find tiago_navigation)/config/curriculum_phase.yaml"/>
+
+  <!--   per-run overrides   -->
+  <!-- How many episodes this chunk should run -->
+  <param name="/Training/test" value="$(arg test)" type="bool"/>
+  <param name="/Training/learning_rate_update" value="$(arg learning_rate_update)" type="double"/>
+  <param name="/Training/curr_sr" value="$(arg curr_sr)" type="double"/>
+
+  <!--  training node  -->
+  <node pkg="tiago_navigation"
+        type="curriculum_learning.py"
+        name="tiago_test_DDPG"
+        output="screen"/>
+</launch>
+
+
+
+<!--
+<launch>
+    
+    <rosparam command="load" file="$(find rl_algorithms)/config/algorithm_param.yaml" />
+    <rosparam command="load" file="$(find tiago_navigation)/config/training_param.yaml" />
+    <rosparam command="load" file="$(find tiago_navigation)/config/navigation_param.yaml" />
+    <rosparam command="load" file="$(find tiago_navigation)/config/tiago_param.yaml" />
+    
+    <node pkg="tiago_navigation" name="tiago_test_DDPG" type="curriculum_learning.py" output="screen"/>
+</launch>
+-->
